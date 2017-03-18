@@ -2,10 +2,14 @@
 <html>
 <head>
     <title>OAuth demo</title>
+    <script src="scripts/jquery-3.2.0.min.js" type="application/javascript"></script>
+    <script src="scripts/index.js" type="application/javascript"></script>
 </head>
 <body>
+    <div hidden id="welcome">Welcome, <span id="user-email"></span></div>
+    <div hidden id="no-user">There is no logged in user</div>
     <form action="api/oauth/google/login" method="GET">
-        <input type="submit">
+        <input type="submit" value="Google login">
     </form>
 </body>
 </html>
