@@ -27,8 +27,7 @@ function logToPage(string) {
 function redirectWithData(data, access_token) {
     $.redirect(REDIRECT_WITH_DATA_URL, {
         access_token: access_token,
-        email: data.email,
-        name: data.name
+        email: data.email
     })
 }
 

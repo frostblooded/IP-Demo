@@ -1,30 +1,12 @@
 package bg.elsys.ip.rest;
 
 public class User {
-    public String firstName;
-    public String lastName;
-    public String email;
+    private String email;
+    private String accessToken;
 
-    public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String email, String accessToken) {
         this.email = email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.accessToken = accessToken;
     }
 
     public String getEmail() {
@@ -33,5 +15,18 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    @Override
+    public String toString() {
+        return "Email: " + getEmail() + " Access token: " + getAccessToken();
     }
 }

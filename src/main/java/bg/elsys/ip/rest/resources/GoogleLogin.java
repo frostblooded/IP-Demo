@@ -1,9 +1,8 @@
 package bg.elsys.ip.rest.resources;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import bg.elsys.ip.rest.UsersSingleton;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
@@ -30,8 +29,12 @@ public class GoogleLogin {
 
     @POST
     @Path("receive_email")
-    public Response receiveEmail(@QueryParam("email") String email) {
-        System.out.println("Email: " + email);
-        return Response.ok().build();
+    public Response receiveEmail(@FormParam("email") String email,
+                                 @FormParam("access_token") String accessToken) {
+        UsersSingleton.getInstance().handleGoogleUser(email, accessToken);
+
+        String url = "http://localhost:8080/oauth_demo/";
+        URI uri = UriBuilder.fromUri(url).build();
+        return Response.seeOther(uri).build();
     }
 }
