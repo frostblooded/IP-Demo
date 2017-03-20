@@ -3,11 +3,12 @@ $(function () {
         url: 'api/users/current',
         method: 'GET',
         success: function (res) {
+            console.log(res);
             if(res) {
-                $('#welcome').show();
+                $('#logged-in').show();
                 $('#user-email').text(res.email);
             } else {
-                $('#no-user').show();
+                $('#logged-out').show();
             }
         }
     });

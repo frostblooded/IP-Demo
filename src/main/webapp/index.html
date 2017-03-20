@@ -6,10 +6,17 @@
     <script src="scripts/index.js" type="application/javascript"></script>
 </head>
 <body>
-    <div hidden id="welcome">Welcome, <span id="user-email"></span></div>
-    <div hidden id="no-user">There is no logged in user</div>
-    <form action="api/oauth/google/login" method="GET">
-        <input type="submit" value="Google login">
-    </form>
+    <div id="logged-in" hidden>
+        <div id="welcome">Welcome, <span id="user-email"></span></div>
+        <form action="api/oauth/google/logout" method="POST">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+    <div id="logged-out" hidden>
+        <div id="no-user">There is no logged in user</div>
+        <form action="api/oauth/google/login" method="POST">
+            <input type="submit" value="Google login">
+        </form>
+    </div>
 </body>
 </html>
